@@ -1,0 +1,11 @@
+= form_for([@garage, @garage.cars.build]) do |f|
+  %p
+    = f.label :make
+    %br/
+    = f.text_field :make
+  %p
+    = f.label :model
+    %br/
+    = f.text_field :model
+  %p
+    = f.submit

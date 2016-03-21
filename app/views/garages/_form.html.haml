@@ -1,0 +1,20 @@
+- if @garage.errors.any?
+  #error_explanation
+    = pluralize(@garage.errors.count, "error")
+    prohibited this garage from being saved
+    %ul
+      - @garage.errors.full_messages.each do |msg|
+        %li
+          = msg
+
+= form_for @garage do |f|
+  %p
+    = f.label :name
+    %br/
+    = f.text_field :name
+  %p
+    = f.label :car_type
+    %br/
+    = f.text_field :car_type
+  %p
+    = f.submit

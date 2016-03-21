@@ -1,0 +1,23 @@
+%p
+  %strong Name:
+  = @garage.name
+%p
+  %strong Car Type:
+  = @garage.car_type
+
+%h1 Cars
+- @garage.cars.each do |car|
+  %p
+    %strong Make:
+    = car.make
+  %p
+    %strong Model:
+    = car.model
+  %p
+    = link_to 'Delete Car', [car.garage, car], method: :delete, data: {confirm: "Are you sure?"}
+
+%h1 Add A Car
+
+= render 'cars/form'
+
+= link_to 'Back', garages_path
