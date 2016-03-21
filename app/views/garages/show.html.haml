@@ -1,3 +1,4 @@
+%h1 Garage
 %p
   %strong Name:
   = @garage.name
@@ -6,15 +7,7 @@
   = @garage.car_type
 
 %h1 Cars
-- @garage.cars.each do |car|
-  %p
-    %strong Make:
-    = car.make
-  %p
-    %strong Model:
-    = car.model
-  %p
-    = link_to 'Delete Car', [car.garage, car], method: :delete, data: {confirm: "Are you sure?"}
+= render @garage.cars
 
 %h1 Add A Car
 

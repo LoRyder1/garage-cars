@@ -1,0 +1,8 @@
+%p
+  %strong Make:
+  = car.make
+%p
+  %strong Model:
+  = car.model
+%p
+  = link_to 'Delete Car', [car.garage, car], method: :delete, data: {confirm: "Are you sure?"}
