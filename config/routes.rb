@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     resources :cars
   end
 
-  resources :users
+  resources :users, only: [:new, :create]
+
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
