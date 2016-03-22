@@ -11,23 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321083708) do
+ActiveRecord::Schema.define(version: 20160322052415) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "make"
     t.string   "model"
     t.integer  "garage_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "cars", ["garage_id"], name: "index_cars_on_garage_id"
+  add_index "cars", ["user_id"], name: "index_cars_on_user_id"
 
   create_table "garages", force: :cascade do |t|
     t.string   "name"
     t.text     "car_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "display_name"
+    t.string   "email"
+    t.string   "password_hash"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

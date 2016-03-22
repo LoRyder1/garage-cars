@@ -1,0 +1,19 @@
+%h1 New User Signup
+
+- if @user.errors.any?
+  #error_explanation
+    = pluralize(@user.errors.count, 'error')
+    prohibited this account from being created:
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li
+          = msg
+
+= form_for @user do |f|
+
+  %p
+    = f.text_field :email, placeholder: 'email'
+  %p
+    = f.password_field :password, placeholder: 'password'
+  %p
+    = f.submit
