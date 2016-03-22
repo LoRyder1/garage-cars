@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :require_login
+  
   def new
     if logged_in?
       redirect_to root_path
@@ -11,7 +13,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:user_email], params[:user_password])
     if user
       session[:user_id] = user.id
-      redirect_to timeentries_path
+      redirect_to root_path
     else
       flash[:error] = "Invalid email or password"
       render 'new'
